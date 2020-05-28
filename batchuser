@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ $# == 0 ];then
+	echo "Usage: /root/batchusers" >&2
+	exit 1
+elif [ ! -f $1 ];then
+	echo "Input file not found" >&2
+	exit 2
+else
+for i in `cat $1`
+do
+	useradd -s /bin/false $i
+done
+fi
